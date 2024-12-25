@@ -37,6 +37,18 @@ Most significant, though, is **Evolution CMS's** ability to empower you to quick
 You can use the single click installer: [Evolution CMS Installer](https://github.com/evolution-cms/installer)
 Evolution CMS 3.2.x requires **PHP >= 8.2**
 
+## Install via Cursor
+1. Make sure you have Docker Desktop installed and running
+2. Open project in Cursor
+3. Type in chat: "Install"
+4. Follow AI instructions
+
+Cursor will automatically:
+- Create necessary environment files
+- Configure Docker settings
+- Start containers
+- Provide access details for Evolution CMS and database management
+
 ## Docker
 
 Run command ```php core/artisan salo:install``` for generating **docker-compose.yml** file. And ```php core/artisan salo:build``` for build Docker container.

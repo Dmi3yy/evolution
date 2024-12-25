@@ -1,0 +1,61 @@
+# Evolution CMS Installation Steps
+
+check_docker:
+  - command: docker --version
+  - command: docker compose version
+  - message: "Make sure Docker is installed and running"
+  - user_prompt: "I will check if Docker is installed on your system..."
+
+ask_database:
+  - user_prompt: |
+      Which database would you like to use?
+      1. MySQL (recommended)
+      2. MariaDB
+      Type 1 or 2:
+
+generate_docker_config:
+  - command: php core/artisan salo:install
+    message: "Generating docker-compose.yml file"
+    user_prompt: "I will now generate the Docker configuration. When prompted, I'll select MySQL for you..."
+    auto_input: "0"
+
+deploy_docker:
+  - user_prompt: "Starting Docker containers. This may take a few minutes..."
+  - command: docker compose up -d
+    message: "Starting Docker containers"
+
+installation_complete:
+  - user_prompt: |
+      ✅ Installation completed successfully!
+      
+      You can now access:
+      1. Evolution CMS: http://localhost
+      2. Database Management (Adminer): http://localhost:8080
+         - Server: mysql
+         - Username: homestead
+         - Password: password
+         - Database: evo
+      
+      To start working with Evolution CMS, open http://localhost in your browser.
+      Need help? Type 'help' in the chat.
+
+access_points:
+  evolution_cms: "http://localhost"
+  adminer:
+    url: "http://localhost:8080"
+    credentials:
+      server: "mysql"
+      username: "homestead"
+      password: "password"
+      database: "evo"
+
+stop_containers:
+  - command: docker compose down
+    message: "Stop and remove containers"
+  - user_prompt: "Stopping all containers..."
+
+useful_commands:
+  - command: docker compose logs
+    message: "View container logs"
+  - command: docker compose restart
+    message: "Restart containers" 
