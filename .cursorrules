@@ -1,95 +1,92 @@
 # Evolution CMS Installation Steps
 
-check_docker:
-  - command: docker --version
-  - command: docker compose version
-  - message: "Make sure Docker is installed and running"
-  - user_prompt: "I will check if Docker is installed on your system..."
+steps:
+  - step: setup_docker
+    actions:
+      - command: php core/artisan salo:install
+        message: "Generating docker-compose.yml file"
+        user_prompt: "Step 1: Generating Docker configuration. Default selection: MySQL."
+      - command: php core/artisan salo:build
+        message: "Building Docker container"
+        user_prompt: "Step 2: Building Docker container. Please wait."
+      - command: php core/artisan salo:up
+        message: "Starting Docker containers"
+        user_prompt: "Step 3: Starting Docker containers. This may take a few minutes."
 
-generate_docker_config:
-  - command: php core/artisan salo:install
-    message: "Generating docker-compose.yml file"
-    user_prompt: "I will now generate the Docker configuration. When prompted, I'll select MySQL for you..."
-    auto_input: "0"
+  - step: gather_admin_details
+    actions:
+      - user_prompt: |
+          Step 4: Please provide the following details for the admin account:
+          - Admin Login: (e.g., admin)
+          - Admin Email: (e.g., admin@example.com)
+          - Admin Password: (e.g., admin123)
+          
+          Type 'yes' to confirm or provide your custom details:
+        variables:
+          - admin_login
+          - admin_email
+          - admin_password
 
-deploy_docker:
-  - user_prompt: "Starting Docker containers. This may take a few minutes..."
-  - command: docker compose up -d
-    message: "Starting Docker containers"
+  - step: install_cms
+    actions:
+      - user_prompt: |
+          Step 5: Installing Evolution CMS
+          
+          Please open http://localhost/install/ in your browser and follow these steps:
+          1. Select language: English
+          2. Set database connection:
+             - Database type: MySQL
+             - Database server: mysql
+             - Database name: evo
+             - Database user: homestead
+             - Database password: password
+             - Table prefix: evo_
+          3. Set admin account:
+             - Username: ${admin_login}
+             - Email: ${admin_email}
+             - Password: ${admin_password}
+          
+          After completing installation, type 'done' to continue:
+        wait_for: "done"
 
-install_cms:
-  - user_prompt: |
-      Now I will help you install Evolution CMS.
-      Please confirm or modify these installation parameters:
-      
-      Database Settings:
-      - Type: mysql
-      - Server: mysql
-      - Database: evo
-      - Username: homestead
-      - Password: password
-      - Table Prefix: evo_
-      
-      Admin Settings:
-      - Login: admin
-      - Email: admin@example.com
-      - Password: admin123
-      
-      Other Settings:
-      - Language: en
-      - Remove Install: yes
-      
-      Type 'yes' to continue with these settings or provide your own:
-  - command: docker compose exec evo.php php install/cli-install.php --typeInstall=1 --databaseType=mysql --databaseServer=mysql --database=evo --databaseUser=homestead --databasePassword=password --tablePrefix=evo_ --cmsAdmin=admin --cmsAdminEmail=admin@example.com --cmsPassword=admin123 --language=en --removeInstall=y
-    message: "Installing Evolution CMS"
+  - step: post_install
+    actions:
+      - command: docker compose exec evo.php php core/artisan package:create main
+        message: "Step 6: Creating main package"
+      - command: docker compose exec evo.php bash -c 'echo "<?php return \"EvolutionCMS\\Main\\Controllers\\\";" > core/custom/config/cms/settings/ControllerNamespace.php'
+        message: "Configuring NameSpaces for controllers"
+      - command: docker compose exec evo.php php core/artisan extras extras TinyMCE5 master
+        message: "Installing TinyMCE5 plugin"
+      - command: docker compose exec evo.php bash -c 'echo "<?php return \"TinyMCE5\";" > core/custom/config/cms/settings/which_editor.php'
+        message: "Setting TinyMCE5 as default editor"
 
-post_install:
-  - command: docker compose exec evo.php php core/artisan package:create main
-    message: "Creating main package"
-  - command: docker compose exec evo.php bash -c 'echo "<?php return \"EvolutionCMS\\\Main\\\Controllers\\\\";" > core/custom/config/cms/settings/ControllerNamespace.php'
-    message: "Configuring NameSpaces for controllers"
-  - command: docker compose exec evo.php php core/artisan extras extras TinyMCE5 master
-    message: "Installing TinyMCE5 plugin"
-  - command: docker compose exec evo.php bash -c 'echo "<?php return \"TinyMCE5\";" > core/custom/config/cms/settings/which_editor.php'
-    message: "Setting TinyMCE5 as default editor"
+  - step: installation_complete
+    actions:
+      - user_prompt: |
+          ✅ Installation completed successfully!
+          
+          Access Evolution CMS:
+          1. CMS: http://localhost
+             Admin Panel: http://localhost/manager/
+             - Login: ${admin_login}
+             - Password: ${admin_password}
+          
+          2. Database Management (Adminer): http://localhost:8080
+             - Server: mysql
+             - Username: homestead
+             - Password: password
+             - Database: evo
+          
+          To start, open http://localhost in your browser. Type 'help' for support.
 
-installation_complete:
-  - user_prompt: |
-      ✅ Installation completed successfully!
-      
-      You can now access:
-      1. Evolution CMS: http://localhost
-         Admin Panel: http://localhost/manager/
-         - Login: admin
-         - Password: admin123
-      
-      2. Database Management (Adminer): http://localhost:8080
-         - Server: mysql
-         - Username: homestead
-         - Password: password
-         - Database: evo
-      
-      To start working with Evolution CMS, open http://localhost in your browser.
-      Need help? Type 'help' in the chat.
-
-access_points:
-  evolution_cms: "http://localhost"
-  evolution_admin: "http://localhost/manager/"
-  adminer:
-    url: "http://localhost:8080"
-    credentials:
-      server: "mysql"
-      username: "homestead"
-      password: "password"
-      database: "evo"
-
-stop_containers:
-  - command: docker compose down
-    message: "Stop and remove containers"
-  - user_prompt: "Stopping all containers..."
+  - step: stop_containers
+    actions:
+      - command: php core/artisan salo:down
+        message: "Stopping and removing Docker containers"
+        user_prompt: "Stopping all containers."
 
 useful_commands:
   - command: docker compose logs
     message: "View container logs"
   - command: docker compose restart
-    message: "Restart containers" 
+    message: "Restart containers"
