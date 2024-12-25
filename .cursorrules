@@ -6,13 +6,6 @@ check_docker:
   - message: "Make sure Docker is installed and running"
   - user_prompt: "I will check if Docker is installed on your system..."
 
-ask_database:
-  - user_prompt: |
-      Which database would you like to use?
-      1. MySQL (recommended)
-      2. MariaDB
-      Type 1 or 2:
-
 generate_docker_config:
   - command: php core/artisan salo:install
     message: "Generating docker-compose.yml file"
@@ -24,12 +17,52 @@ deploy_docker:
   - command: docker compose up -d
     message: "Starting Docker containers"
 
+install_cms:
+  - user_prompt: |
+      Now I will help you install Evolution CMS.
+      Please confirm or modify these installation parameters:
+      
+      Database Settings:
+      - Type: mysql
+      - Server: mysql
+      - Database: evo
+      - Username: homestead
+      - Password: password
+      - Table Prefix: evo_
+      
+      Admin Settings:
+      - Login: admin
+      - Email: admin@example.com
+      - Password: admin123
+      
+      Other Settings:
+      - Language: en
+      - Remove Install: yes
+      
+      Type 'yes' to continue with these settings or provide your own:
+  - command: docker compose exec evo.php php install/cli-install.php --typeInstall=1 --databaseType=mysql --databaseServer=mysql --database=evo --databaseUser=homestead --databasePassword=password --tablePrefix=evo_ --cmsAdmin=admin --cmsAdminEmail=admin@example.com --cmsPassword=admin123 --language=en --removeInstall=y
+    message: "Installing Evolution CMS"
+
+post_install:
+  - command: docker compose exec evo.php php core/artisan package:create main
+    message: "Creating main package"
+  - command: docker compose exec evo.php bash -c 'echo "<?php return \"EvolutionCMS\\\Main\\\Controllers\\\\";" > core/custom/config/cms/settings/ControllerNamespace.php'
+    message: "Configuring NameSpaces for controllers"
+  - command: docker compose exec evo.php php core/artisan extras extras TinyMCE5 master
+    message: "Installing TinyMCE5 plugin"
+  - command: docker compose exec evo.php bash -c 'echo "<?php return \"TinyMCE5\";" > core/custom/config/cms/settings/which_editor.php'
+    message: "Setting TinyMCE5 as default editor"
+
 installation_complete:
   - user_prompt: |
       ✅ Installation completed successfully!
       
       You can now access:
       1. Evolution CMS: http://localhost
+         Admin Panel: http://localhost/manager/
+         - Login: admin
+         - Password: admin123
+      
       2. Database Management (Adminer): http://localhost:8080
          - Server: mysql
          - Username: homestead
@@ -41,6 +74,7 @@ installation_complete:
 
 access_points:
   evolution_cms: "http://localhost"
+  evolution_admin: "http://localhost/manager/"
   adminer:
     url: "http://localhost:8080"
     credentials:

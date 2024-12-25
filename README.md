@@ -47,7 +47,16 @@ Cursor will automatically:
 - Create necessary environment files
 - Configure Docker settings
 - Start containers
+- Help you configure and install Evolution CMS
+- Set up admin panel and default editor
 - Provide access details for Evolution CMS and database management
+
+After installation you will get:
+- Evolution CMS with admin panel
+- MySQL database
+- Adminer for database management
+- TinyMCE5 as default editor
+- Main package with configured namespaces
 
 ## Docker
 
