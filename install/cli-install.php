@@ -79,8 +79,21 @@ class InstallEvo
 
     public function initEvo()
     {
-
-        include '../index.php';
+        // Get the absolute path to the installation directory
+        $installDir = realpath(__DIR__);
+        
+        // Get the root directory (one level up from install)
+        $rootDir = dirname($installDir);
+        
+        // Change to the root directory
+        chdir($rootDir);
+        
+        // Now include index.php using absolute path
+        if (!file_exists($rootDir . '/index.php')) {
+            die("Error: Cannot find index.php in {$rootDir}. Current directory: " . getcwd());
+        }
+        
+        include $rootDir . '/index.php';
         $this->evo = EvolutionCMS();
     }
 
