@@ -49,11 +49,11 @@
 to { transform: rotate(360deg) }
 }
 /* dark */
-.dark #frameset { background-color: #202329 }
+.dark #frameset { background-color: #181818 }
 .dark #main { background-color: #ecf0f1 }
 .dark #mainloader { background-color: rgba(0, 0, 0, 0.1); }
 /* darkness */
 .darkness { letter-spacing: .021em; }
 .darkness #mainloader { background-color: rgba(0, 0, 0, 0.1); }
-.darkness, .darkness #frameset, .darkness #main, .darkness .table  { background-color: #282c34; color: #bdbdbd; }
-.darkness > form { background-color: #202329 }
+.darkness, .darkness #frameset, .darkness #main, .darkness .table  { background-color: #181817; color: #bdbdbd; }
+.darkness > form { background-color: #181818 }

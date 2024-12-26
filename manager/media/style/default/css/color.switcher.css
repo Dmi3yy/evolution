@@ -30,7 +30,7 @@ i.evocpicon:hover { -webkit-transform: rotate(30deg); -moz-transform: rotate(30d
 100% { color: #900; }
 }
 .evocp-box .evocp-frame { position: absolute; width: 100%; height: 100%; top: 0; right: 0; background: #fafafa; text-align: center; font-weight: 700; color: #444; padding: 0 0 20px 0; }
-.dark .evocp-box .evocp-frame { color: #dedede; background: #202329; border-top: 1px solid #2f323a; }
+.dark .evocp-box .evocp-frame { color: #dedede; background: #181818; border-top: 1px solid #2f323a; }
 .evocp-box .evocp-menuHColors, .evocp-box .evocp-menuColors, .evocp-box .evocp-bgmcolors, .evocp-box .evocp-colors, .evocp-box .evocp-alinkcolors { margin: 10px; overflow: hidden; }
 .evocp-box .evocp-menuHColor, .evocp-box .evocp-menuColor, .evocp-box .evocp-bgmcolor, .evocp-box .evocp-color, .evocp-box .evocp-alinkcolor { position: relative; float: left; margin: 2px; height: 31px; width: 31px; max-height: 31px; max-width: 31px; background: #2f323a; color: transparent; overflow: hidden; cursor: pointer; border: 1px solid #646b7b; border-radius: 50%; }
 .evocp-box .evocp-custom-colors, .evocp-box .evocp-custom-colors { clear: both; padding-top: 20px; }
@@ -46,7 +46,7 @@ i.evocpicon:hover { -webkit-transform: rotate(30deg); -moz-transform: rotate(30d
 .dark .evocp-frame .panel-heading { background-color: #2f323a; border-color: #3e4144; }
 .evocp-frame .panel-heading .btn { margin-top: 2px }
 .dark .evocp-frame .panel-heading .btn { background-color: #2f323a; border-color: #3e4144; color: #fafafa; }
-.dark .evocp-frame .panel-heading .btn:hover { background-color: #1a1c21; }
+.dark .evocp-frame .panel-heading .btn:hover { background-color: #181819; }
 .dark .evocp-frame h2 { border-color: #3e4144; }
 .evocp-frame .panel-heading .togglearrow { width: 10px; font-size: 10px; color: #bbb; margin-right: 2px; margin-top: -5px; }
 .evocp-box .evocp-menuHColor.colorSelected:before, .evocp-box .evocp-menuColor.colorSelected:before, .evocp-box .evocp-bgmcolor.colorSelected:before, .evocp-box .evocp-color.colorSelected:before, .evocp-box .evocp-alinkcolor.colorSelected:before { font-family: 'Font Awesome 5 Free'; content: "\f1fc"; display: inline-block; padding-top: 3px; vertical-align: middle; color: #fff; }

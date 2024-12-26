@@ -41,8 +41,8 @@ select:not([size]):not([multiple]), select.form-control:not([size]):not([multipl
 .btn-info { color: #fff; background-color: #5bc0de; border-color: #5bc0de; }
 .btn-info:hover { color: #fff; background-color: #31b0d5; border-color: #2aabd2; }
 .btn-info:focus, .btn-info:focus:active { color: #fff; background-color: #269abc; border-color: #1f7e9a; }
-.btn-default { color: #bbb; background-color: #202329; border-color: #202329 }
-.btn-default:hover { color: #fff; background-color: #1a1c21; border-color: #1a1c21 }
+.btn-default { color: #bbb; background-color: #181818; border-color: #181818 }
+.btn-default:hover { color: #fff; background-color: #181819; border-color: #181819 }
 textarea, textarea.form-control { width: 100%; line-height: 1.5; overflow: auto; resize: vertical }
 select:not([size]):not([multiple]), select[size="1"] { padding-right: 2em !important; background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTc5MiAxNzkyJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxwYXRoIGQ9J00xMzk1IDczNnEwIDEzLTEwIDIzbC00NjYgNDY2cS0xMCAxMC0yMyAxMHQtMjMtMTBsLTQ2Ni00NjZxLTEwLTEwLTEwLTIzdDEwLTIzbDUwLTUwcTEwLTEwIDIzLTEwdDIzIDEwbDM5MyAzOTMgMzkzLTM5M3ExMC0xMCAyMy0xMHQyMyAxMGw1MCA1MHExMCAxMCAxMCAyM3onIGZpbGw9JyUyMzQ0NCcvPjwvc3ZnPg==") !important; background-repeat: no-repeat; background-position: right center; background-size: 2em 1.3em }
 select[size="1"]:not(.unstyled), select[name="which_editor"] { width: auto; }
@@ -59,13 +59,13 @@ select::-ms-expand { display: none; }
 select:not([size]):not([multiple]) { text-indent: -2px }
 }
 /* darkness */
-.darkness .form-control, .darkness input[type=text]:not(.form-control), .darkness input[type=password], .darkness input[type=number], .darkness input[type=email], .darkness input[type=date], .darkness input[type=url], .darkness input[type=search], .darkness select, .darkness textarea, .darkness .btn, .darkness button:not(.btn), .darkness input[type=button]:not(.btn), .darkness input[type=submit]:not(.btn), .darkness .input-group-addon { border-color: #414449; background-color: #202329; color: #bbb; }
+.darkness .form-control, .darkness input[type=text]:not(.form-control), .darkness input[type=password], .darkness input[type=number], .darkness input[type=email], .darkness input[type=date], .darkness input[type=url], .darkness input[type=search], .darkness select, .darkness textarea, .darkness .btn, .darkness button:not(.btn), .darkness input[type=button]:not(.btn), .darkness input[type=submit]:not(.btn), .darkness .input-group-addon { border-color: #373737; background-color: #181818; color: #bbb; }
 .darkness input:not([type=button]):not([type=submit]):hover:not(:focus), .darkness select:hover:not(:focus), .darkness textarea:hover:not(:focus) { border-color: #5d5d5d }
-.darkness .form-control:disabled, .darkness .form-control[readonly] { background-color: #282c34 !important; border-color: #414449 !important; }
-.darkness .btn:hover, .darkness input[type=button]:not(.btn):hover, .darkness input[type=submit]:not(.btn):hover, .darkness .input-group-addon:hover { border-color: #414449; background-color: #282c34; color: #eee; }
+.darkness .form-control:disabled, .darkness .form-control[readonly] { background-color: #181817 !important; border-color: #373737 !important; }
+.darkness .btn:hover, .darkness input[type=button]:not(.btn):hover, .darkness input[type=submit]:not(.btn):hover, .darkness .input-group-addon:hover { border-color: #373737; background-color: #181817; color: #eee; }
 .darkness .btn-primary { color: #fff; background-color: #0275d8; border-color: #0275d8 }
 .darkness .btn-primary:hover { color: #fff; background-color: #025aa5; border-color: #01549b }
-.darkness .btn-secondary.active.focus, .darkness .btn-secondary.active:focus, .darkness .btn-secondary.active:hover, .darkness .btn-secondary:active.focus, .darkness .btn-secondary:active:focus, .darkness .btn-secondary:active:hover, .darkness .open > .btn-secondary.dropdown-toggle.focus, .darkness .open > .btn-secondary.dropdown-toggle:focus, .darkness .open > .btn-secondary.dropdown-toggle:hover, .darkness .btn-secondary.focus, .darkness .btn-secondary:focus { border-color: #414449; background-color: #1a1c21; color: #eee; }
+.darkness .btn-secondary.active.focus, .darkness .btn-secondary.active:focus, .darkness .btn-secondary.active:hover, .darkness .btn-secondary:active.focus, .darkness .btn-secondary:active:focus, .darkness .btn-secondary:active:hover, .darkness .open > .btn-secondary.dropdown-toggle.focus, .darkness .open > .btn-secondary.dropdown-toggle:focus, .darkness .open > .btn-secondary.dropdown-toggle:hover, .darkness .btn-secondary.focus, .darkness .btn-secondary:focus { border-color: #373737; background-color: #181819; color: #eee; }
 .darkness .btn-success { color: #fff; background-color: #428743; border-color: #479048; }
 .darkness .btn-success.active, .darkness .btn-success:active, .darkness .open > .btn-success.dropdown-toggle { color: #fff; border-color: #419641; background: #448546 none; }
 .darkness .btn-success:hover { color: #fff; background-color: #39773a; border-color: #39773a; }
@@ -75,21 +75,21 @@ select:not([size]):not([multiple]) { text-indent: -2px }
 .darkness .btn-warning:hover { color: #fff; background-color: #ec971f; border-color: #eb9316; }
 .darkness .btn-info { color: #fff; background-color: #5bc0de; border-color: #5bc0de; }
 .darkness .btn-info:hover { color: #fff; background-color: #31b0d5; border-color: #2aabd2; }
-.darkness .btn-default { color: #bbb; background-color: #202329; border-color: #202329 }
-.darkness .btn-default:hover { color: #fff; background-color: #1a1c21; border-color: #1a1c21 }
-.darkness #actions { right: 0; background-color: #282c34 }
+.darkness .btn-default { color: #bbb; background-color: #181818; border-color: #181818 }
+.darkness .btn-default:hover { color: #fff; background-color: #181819; border-color: #181819 }
+.darkness #actions { right: 0; background-color: #181817 }
 .darkness #actions .btn-group .btn-success { box-shadow: none }
 .darkness #actions .dropdown-menu .btn { background-color: #343942; border-radius: 0; color: #fff; }
 .darkness #actions .dropdown-menu .btn:hover { background-color: #3c424e; color: #fff }
-.darkness optgroup { background-color: #202329 }
-.darkness optgroup option { background-color: #1a1c21 }
+.darkness optgroup { background-color: #181818 }
+.darkness optgroup option { background-color: #181819 }
 .darkness .float-right > select { width: auto }
-.darkness input[type=checkbox], .darkness input[type=radio] { border: 1px solid #414449; background-color: #202329 }
+.darkness input[type=checkbox], .darkness input[type=radio] { border: 1px solid #373737; background-color: #181818 }
 .darkness input[type=checkbox]:checked, .darkness input[type=radio]:checked { background-color: #ffc107; border-color: #ffc107 !important }
 .darkness input[type=checkbox]:checked:hover, .darkness input[type=radio]:checked:hover { box-shadow: 0 0 .5em #ffc107 }
 .darkness input[type=checkbox]:checked + label { background-color: transparent !important; color: #fff; }
 .darkness input[type=checkbox] + label:hover { color: #fff; }
-.darkness input[type=checkbox]:disabled, .darkness input[type=radio]:disabled, .darkness input[type=checkbox]:checked:disabled, .darkness input[type=radio]:checked:disabled { background-color: #282c34; border-color: #414449 !important }
+.darkness input[type=checkbox]:disabled, .darkness input[type=radio]:disabled, .darkness input[type=checkbox]:checked:disabled, .darkness input[type=radio]:checked:disabled { background-color: #181817; border-color: #373737 !important }
 .darkness select:not([size]):not([multiple]), .darkness select[size="1"] { background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTc5MiAxNzkyJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9JyNlZWUnPjxwYXRoIGQ9J00xMzk1IDczNnEwIDEzLTEwIDIzbC00NjYgNDY2cS0xMCAxMC0yMyAxMHQtMjMtMTBsLTQ2Ni00NjZxLTEwLTEwLTEwLTIzdDEwLTIzbDUwLTUwcTEwLTEwIDIzLTEwdDIzIDEwbDM5MyAzOTMgMzkzLTM5M3ExMC0xMCAyMy0xMHQyMyAxMGw1MCA1MHExMCAxMCAxMCAyM3onLz48L3N2Zz4=") !important; background-repeat: no-repeat; }
 .darkness input:-webkit-autofill, .darkness textarea:-webkit-autofill, .darkness select:-webkit-autofill, .darkness input:-webkit-autofill:focus { border-color: #ffc107 !important; -webkit-animation-name: autofill; -webkit-animation-fill-mode: both; outline: none }
 .darkness input:-webkit-autofill:focus { box-shadow: 0 0 0.5em #ffc107; }

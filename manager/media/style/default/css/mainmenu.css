@@ -2,8 +2,7 @@
 #mainMenu {
     background-color: #2b323a;
     color: #8b9298;
-    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #373737;
 }
 #mainMenu.show {
     overflow: visible;
@@ -678,7 +677,7 @@
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
 }
 .dark #mainMenu {
-    background-color: #202329;
+    background-color: #181818;
     color: #bbb;
 }
 .dark #mainMenu .nav > li > a,
@@ -689,12 +688,9 @@
     color: #444;
 }
 /* darkness */
+
 .darkness #mainMenu {
-    -webkit-box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
-}
-.darkness #mainMenu {
-    background-color: #202329;
+    background-color: #181818;
     color: #bbb;
 }
 .darkness #mainMenu .nav > li > a,
@@ -727,16 +723,16 @@
     background-color: transparent;
 }
 .darkness #searchresult {
-    background-color: #202329;
-    border-left: 1px solid #282c34;
+    background-color: #181818;
+    border-left: 1px solid #181817;
 }
 .darkness #searchresult .ajaxSearchResults b {
-    background-color: #1a1c21;
+    background-color: #181819;
 }
 .darkness #searchresult .ajaxSearchResults b,
 .darkness #searchresult .ajaxSearchResults strong,
 .darkness #searchresult .ajaxSearchResults a {
-    border-color: #282c34;
+    border-color: #181817;
     color: #aaa;
 }
 .darkness #searchresult .ajaxSearchResults a:hover {
