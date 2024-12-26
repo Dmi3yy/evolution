@@ -2,7 +2,6 @@
 #mainMenu {
     background-color: #2b323a;
     color: #8b9298;
-    border-bottom: 1px solid #373737;
 }
 #mainMenu.show {
     overflow: visible;
@@ -202,7 +201,7 @@
 }
 #mainMenu .nav > li > ul > li.hover > a:first-child {
     color: #fff;
-    background-color: #1976d2;
+    background-color: #1881EE;
 }
 #mainMenu .nav > li > ul > li > span:first-child {
     padding: 0 1rem;
@@ -447,14 +446,14 @@
     margin-top: -1rem;
     line-height: 2rem;
     text-align: center;
-    color: #1976d2;
+    color: #1881EE;
 }
 #searchresult .ajaxSearchResults a.selected > i {
     color: #fff;
 }
 #searchresult .ajaxSearchResults a.selected {
     z-index: 1;
-    background-color: #1976d2;
+    background-color: #1881EE;
     color: #fff;
     font-weight: 700;
 }
@@ -678,11 +677,11 @@
 }
 .dark #mainMenu {
     background-color: #181818;
-    color: #bbb;
+    color: #D6D6DC;
 }
 .dark #mainMenu .nav > li > a,
 .dark #mainMenu .nav .label_searchid {
-    color: #bbb;
+    color: #D6D6DC;
 }
 .dark #mainMenu.show .nav > li.dropdown.hover > a {
     color: #444;
@@ -691,12 +690,13 @@
 
 .darkness #mainMenu {
     background-color: #181818;
-    color: #bbb;
+    color: #D6D6DC;
+    border-bottom: 1px solid #373737;
 }
 .darkness #mainMenu .nav > li > a,
 .darkness #mainMenu .nav .label_searchid,
 .dark.navbar-left #mainMenu .nav > li > a {
-    color: #bbb;
+    color: #D6D6DC;
 }
 .darkness #mainMenu.show .nav > li.dropdown.hover > a,
 .dark.navbar-left #mainMenu.show .nav > li.dropdown.hover > a {
