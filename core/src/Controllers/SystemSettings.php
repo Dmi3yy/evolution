@@ -164,7 +164,7 @@ class SystemSettings extends AbstractController implements ManagerTheme\PageCont
         $themes = [];
         $dir = dir(MODX_MANAGER_PATH . 'media/style/');
         while ($file = $dir->read()) {
-            if (strpos($file, '.') === 0 || $file === 'common') {
+            if (strpos($file, '.') === 0 || $file === 'common' || $file === 'fonts') {
                 continue;
             }
             if (!is_dir(MODX_MANAGER_PATH . 'media/style/' . $file)) {

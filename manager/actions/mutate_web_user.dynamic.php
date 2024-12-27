@@ -820,7 +820,7 @@ $displayStyle = ($_SESSION['browser'] === 'modern') ? 'table-row' : 'block';
                                 while($file = $dir->read()) {
                                     if($file != "." && $file != ".." && is_dir("media/style/$file") && substr($file, 0, 1) != '.') {
                                         $themename = $file;
-                                        if($themename === 'common') {
+                                        if($themename === 'common' || $themename === 'fonts') {
                                             continue;
                                         }
                                         $attr = 'value="' . $themename . '" ';
